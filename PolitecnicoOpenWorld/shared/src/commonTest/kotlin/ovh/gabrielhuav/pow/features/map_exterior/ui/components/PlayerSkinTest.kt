@@ -24,6 +24,13 @@ class PlayerSkinTest {
     }
 
     @Test
+    fun skinInvalidaOCorruptaRetornaFallbackSeguro() {
+        val invalidSkinName = "INVALID_CORRUPTED_SKIN_123"
+        val resolvedSkin = runCatching { PlayerSkin.valueOf(invalidSkinName) }.getOrElse { PlayerSkin.LAZARO }
+        assertEquals(PlayerSkin.LAZARO, resolvedSkin, "Un identificador corrupto debe retornar LAZARO como fallback seguro")
+    }
+
+    @Test
     fun todasLasSkinsTienenConfiguracionCoherente() {
         PlayerSkin.entries.forEach { skin ->
             assertTrue(skin.displayName.isNotBlank(), "DisplayName no puede estar vacio: ${skin.name}")
