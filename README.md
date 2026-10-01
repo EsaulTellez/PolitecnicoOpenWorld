@@ -24,7 +24,7 @@
 * **SHA Base de `main` (commit de partida sincronizado):**  
   `7ed325393f82872c2be94ff2ada46948efa19152`
 * **SHA Final Evaluado (commit final de la entrega):**  
-  `34eef668c67926b054238e8ec3b7b2520bb2c6e3`
+  `89bab3c272f5095ba56a93fabea3b10ae5f7a3e6`
 
 ---
 
@@ -116,6 +116,7 @@ Conforme a la sección 3.1 del examen: *"Si GitHub requiere autorización del ma
 | `ab0f016e` | `docs(qa): add test plan matrix and invalid state fallback assertions` | Esaul Téllez | 2026-09-23 | Creación de `docs/pruebas.md` y assertions para el estado alterno / límite. |
 | `476ffad7` | `feat(combat): integrate 'El Calvo con Capa' into HUELUM VS. GOYA fighting mode and test suite` | Esaul Téllez | 2026-09-30 | Registro en `SfFighterId`, mapeo de escenario ESCOM y soporte en modo pelea 1v1. |
 | `34eef668` | `docs(qa): expand 6-case QA matrix with risk mitigations and test specifications` | Esaul Téllez | 2026-09-30 | Ampliación de la matriz a 6 casos formales con 5 riesgos identificados. |
+| `89bab3c2` | `feat(combat): unlock 'El Calvo con Capa' in Street Fighter starters and selectable roster` | Esaul Téllez | 2026-09-30 | Incorporación a `STARTERS`, `ALL_PARTICIPANTS` y `DEFAULT_FIGHTERS` para selección directa. |
 
 ---
 
