@@ -101,10 +101,18 @@ Conforme a la sección 3.1 del examen: *"Si GitHub requiere autorización del ma
 
 ---
 
-## 👥 6. Revisión Técnica por Pares (Peer Review)
+## 👥 6. Revisión Técnica por Pares (Peer Review Realizado por el Alumno)
 
-* **Procedimiento:** Un compañero del equipo o grupo revisa el diff del Pull Request en GitHub, reproduce los pasos del caso CP-02 (resiliencia de fallback) y deja una observación técnica verificable citando una línea concreta de `SettingsRepository.kt`.
-* **Respuesta:** El autor atiende la observación en la conversación del PR, confirmando la cobertura con la prueba unitaria en `PlayerSkinTest.kt`.
+* **Pull Request Evaluado:** [gabrielhuav/PolitecnicoOpenWorld#161: Fix incorrect story attack button hint](https://github.com/gabrielhuav/PolitecnicoOpenWorld/pull/161)
+* **Autor del PR:** [@Gera120312](https://github.com/Gera120312)
+* **SHA Probado en Dispositivo:** `812a945a39f0317813ae05bd15ad47447d2acd90`
+* **Entorno de Evaluación:** Google Pixel 9 Pro XL físico (Android 15 / API 36)
+* **Enlace a la Observación Técnica en GitHub:**  
+  👉 **[Comentario de Revisión Técnica en PR #161](https://github.com/gabrielhuav/PolitecnicoOpenWorld/pull/161#issuecomment-5925105944)**
+* **Resumen del Dictamen:** Se contrastó el diff en `strings.xml` (L81) con la lógica de botones en `ZombieHud.kt` (L202-L203). La corrección aclara efectivamente el botón de golpe (`B`), y se dejó una recomendación técnica constructiva para conservar la visibilidad del botón de menú (`mantén Y`) para la selección de armas de fuego (`CombatMode.RANGED`).
+
+#### Evidencia Visual de la Reproducción (Pixel 9 Pro XL):
+![Evidencia Peer Review PR 161](https://raw.githubusercontent.com/EsaulTellez/PolitecnicoOpenWorld/entrega-parcial-1/docs/evidencia_peer_review_pr161.png)
 
 ---
 
