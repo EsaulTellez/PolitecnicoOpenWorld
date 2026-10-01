@@ -31,6 +31,17 @@ class PlayerSkinTest {
     }
 
     @Test
+    fun calvoConCapaFighterEstaRegistradoEnModoCombate() {
+        val fighter = ovh.gabrielhuav.pow.domain.models.streetfighter.SfFighterId.valueOf("CALVO_CON_CAPA")
+        assertNotNull(fighter)
+        assertEquals("El Calvo con Capa", fighter.displayName)
+        assertEquals("CALVO", fighter.shortName)
+        assertNotNull(fighter.sharedSet)
+        assertEquals("CalvoConCapa/", fighter.sharedSet.folder)
+        assertEquals("ccc_", fighter.sharedSet.prefix)
+    }
+
+    @Test
     fun todasLasSkinsTienenConfiguracionCoherente() {
         PlayerSkin.entries.forEach { skin ->
             assertTrue(skin.displayName.isNotBlank(), "DisplayName no puede estar vacio: ${skin.name}")
