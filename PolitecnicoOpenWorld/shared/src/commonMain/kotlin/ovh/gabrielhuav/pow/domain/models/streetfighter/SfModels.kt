@@ -263,8 +263,8 @@ enum class SfFighterId(
         isAlpha = true, sharedSet = SfSharedSet("SPRITES/NPC/", "Paramedico/", "pmd_"),
     ),
     CALVO_CON_CAPA(
-        "El Calvo con Capa", "CALVO", "STREETFIGHTER/DATA/sf_template.json", "RUNTIME/CalvoConCapa.png",
-        isAlpha = true, sharedSet = SfSharedSet("SPRITES/NPC/", "CalvoConCapa/", "ccc_"),
+        "El Calvo con Capa", "CALVO",
+        "STREETFIGHTER/DATA/calvoconcapa.json", "STREETFIGHTER/IMAGES/CalvoConCapa.webp",
     ),
 }
 

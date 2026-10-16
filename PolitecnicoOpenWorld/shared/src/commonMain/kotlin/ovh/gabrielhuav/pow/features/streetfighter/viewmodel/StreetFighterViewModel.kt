@@ -20,6 +20,7 @@ import kotlinx.coroutines.yield
 import ovh.gabrielhuav.pow.domain.models.streetfighter.SF_HURT_STATES
 import ovh.gabrielhuav.pow.domain.models.streetfighter.SF_BONUS_POWER_STATES
 import ovh.gabrielhuav.pow.domain.models.streetfighter.SF_BLOCK_STATES
+import ovh.gabrielhuav.pow.domain.models.streetfighter.SfAnimFrame
 import ovh.gabrielhuav.pow.domain.models.streetfighter.SfAnimation
 import ovh.gabrielhuav.pow.domain.models.streetfighter.SfDamage
 import ovh.gabrielhuav.pow.domain.models.streetfighter.SfCamera
@@ -1037,7 +1038,28 @@ open class StreetFighterViewModel(
     // Animación por frames (setAnimationFrame / updateAnimation del JS)
     // ------------------------------------------------------------------
 
-    internal fun animOf(f: SfFighter) = dataFor(f).animations.getValue(f.state.jsKey)
+    /** Devuelve la fuente de datos (data propia o del fallback ALPHA si este estado no tiene arte propia). */
+    internal fun activeDataFor(f: SfFighter): SfFighterData {
+        val own = dataFor(f)
+        if (!own.animations[f.state.jsKey].isNullOrEmpty()) return own
+        val fallbackId = alphaFallbackId(f.id)
+        if (fallbackId != f.id) {
+            val fallback = dataCache.getOrPut(fallbackId) { SfFrameCatalog.load(fallbackId) }
+            if (!fallback.animations[f.state.jsKey].isNullOrEmpty()) return fallback
+        }
+        return own
+    }
+
+    internal fun animOf(f: SfFighter): List<SfAnimFrame> {
+        val data = activeDataFor(f)
+        return data.animations[f.state.jsKey]
+            ?: dataFor(f).animations[f.state.jsKey]
+            ?: data.animations[SfFighterState.IDLE.jsKey]
+            ?: dataFor(f).animations[SfFighterState.IDLE.jsKey]
+            ?: data.animations.values.firstOrNull()
+            ?: dataFor(f).animations.values.firstOrNull()
+            ?: listOf(SfAnimFrame("idle-1", 4))
+    }
 
     // 🆕 (2026-07-22, Fase 2a) La lógica de avance de animación vive en SfAnimation (puro,
     // testeable en JVM). Estas funciones quedan como ENVOLTORIOS que pasan animOf(f):

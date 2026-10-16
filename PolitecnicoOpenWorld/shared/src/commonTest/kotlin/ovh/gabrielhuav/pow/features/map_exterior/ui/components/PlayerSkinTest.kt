@@ -36,9 +36,8 @@ class PlayerSkinTest {
         assertNotNull(fighter)
         assertEquals("El Calvo con Capa", fighter.displayName)
         assertEquals("CALVO", fighter.shortName)
-        assertNotNull(fighter.sharedSet)
-        assertEquals("CalvoConCapa/", fighter.sharedSet.folder)
-        assertEquals("ccc_", fighter.sharedSet.prefix)
+        assertEquals("STREETFIGHTER/DATA/calvoconcapa.json", fighter.jsonAsset)
+        assertEquals("STREETFIGHTER/IMAGES/CalvoConCapa.webp", fighter.spriteAsset)
     }
 
     @Test
